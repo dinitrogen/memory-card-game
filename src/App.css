@@ -37,12 +37,20 @@
   text-align: center;
 }
 
+
 .bossName {
   text-align: center;
 }
 
 .bossCorner {
   background-color: black;
+  height: 15px;
+  width: 15px;
+  
+}
+
+.bossCornerHover {
+  background-color: white;
   height: 15px;
   width: 15px;
   

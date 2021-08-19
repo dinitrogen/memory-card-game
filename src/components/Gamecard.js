@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-const Gamecard = ({id, clicked, mouseEntered, mouseLeft}) => {
+const Gamecard = ({id, clicked}) => {
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [boss, setBoss] = useState({});
+    const [hover, setHover] = useState(false);
 
 
     useEffect(() => {
@@ -25,6 +26,16 @@ const Gamecard = ({id, clicked, mouseEntered, mouseLeft}) => {
             )
     }, );
 
+    const mouseEntered = () => {
+        setHover(true);
+        // console.log('hover on ' + boss.name)
+    }
+
+    const mouseLeft = () => {
+        setHover(false);
+        // console.log('hover off ' + boss.name)
+    }
+
     if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -34,10 +45,10 @@ const Gamecard = ({id, clicked, mouseEntered, mouseLeft}) => {
             
                     <div className="gameCardDiv" onClick={clicked} onMouseEnter={mouseEntered} onMouseLeave={mouseLeft}>
                         <div className="bossFrame">
-                            <span className="bossCorner secondCorner"></span>
-                            <span className="bossCorner firstCorner"></span>
-                            <span className="bossCorner thirdCorner"></span>
-                            <span className="bossCorner fourthCorner"></span>
+                            <span className={hover ? 'bossCornerHover secondCorner' : 'bossCorner secondCorner'}></span>
+                            <span className={hover ? 'bossCornerHover firstCorner' : 'bossCorner firstCorner'}></span>
+                            <span className={hover ? 'bossCornerHover thirdCorner' : 'bossCorner thirdCorner'}></span>
+                            <span className={hover ? 'bossCornerHover fourthCorner' : 'bossCorner fourthCorner'}></span>
                             <div className="bossImgDiv">
                                 <img className="bossImg" src={boss.avatar} alt={boss.name}/>
                             </div>
