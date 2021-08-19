@@ -2,17 +2,39 @@ import React, { useState, useEffect } from 'react';
 import Gamecard from './Gamecard';
 
 
+const getCards = () => {
+    // Get randomized array of boss ids. Empty deps array means this will only run once when Gameboard mounts
+    let bossIdArray = [];
+    let bossCards = [];
+    let numCards = 9; // Adjust for number of cards
+        while (bossIdArray.length < numCards) {
+            let id = Math.floor(Math.random() * 31) + 10
+
+            // if (id < 10) {
+            //     id = '00' + id;
+            // } else {
+            //     id = '0' + id;
+            // }
+            
+            if (!bossIdArray.includes(id)) {
+                bossIdArray.push(id);
+                bossCards.push({id:id});
+            } 
+        }  
+    // console.log(bossIdArray);
+    // console.log(bossCards);
+    return bossCards;
+    
+}
+
 
 const Gameboard = () => {
 
-    const [gameCards, setGameCards] = useState([{id:1, letter:'A'}, {id:2, letter: 'B'}, {id:3, letter: 'C'}, {id:4, letter: 'D'}, {id:5, letter: 'E'}]);
+    const [gameCards, setGameCards] = useState(getCards());
     const [pickedCardIds, setPickedCardIds] = useState([]);
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
 
-    // useEffect(() => {
-    //     shuffleCards();
-    // });
 
     const handleCardSelect = (id) => {
         console.log('you clicked card ' + id);
@@ -78,7 +100,6 @@ const Gameboard = () => {
                 {gameCards.map((gameCard) => {
                     return (
                         <Gamecard
-                            letter={gameCard.letter}
                             key={gameCard.id}
                             id={gameCard.id}
                             clicked={() => handleCardSelect(gameCard.id)}

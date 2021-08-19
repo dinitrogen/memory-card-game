@@ -1,3 +1,4 @@
+
 .gameCardDiv {
   border: solid black 2px;
   width: 100px;
@@ -10,6 +11,10 @@
 }
 
 .gameCardGridDiv {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  column-gap: 10px;
+  row-gap: 10px;
+
 }
