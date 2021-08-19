@@ -1,6 +1,33 @@
 
-.gameCardDiv {
+/* .gameCardDiv {
   border: solid black 2px;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+} */
+
+.gameCardGridDiv {
+  display: grid;
+  grid-template-columns: 120px 120px 120px;
+  grid-template-rows: 120px 120px 120px;
+  column-gap: 40px;
+  row-gap: 40px;
+
+}
+
+.bossImg {
+  height: 70px;
+  width: 70px;
+}
+
+.bossFrame {
+  position:relative;
+  border: solid black 2px;
+  background-color: dodgerblue;
   width: 100px;
   height: 100px;
   margin: 10px;
@@ -10,11 +37,46 @@
   text-align: center;
 }
 
-.gameCardGridDiv {
-  display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px;
-  column-gap: 10px;
-  row-gap: 10px;
+.bossName {
+  text-align: center;
+}
 
+.bossCorner {
+  background-color: black;
+  height: 15px;
+  width: 15px;
+  
+}
+
+
+.firstCorner {
+  position:absolute;
+  bottom: 0;
+  right: 0;
+  border-bottom: 0;
+  border-right: 0;
+}
+
+.secondCorner {
+  position:absolute;
+  top: 0;
+  right: 0;
+  border-top: 0;
+  border-right: 0;    
+}
+
+.thirdCorner {
+  position:absolute;
+  top: 0;
+    left: 0; 
+    border-top: 0;
+    border-left: 0;  
+}
+
+.fourthCorner {
+  position:absolute;
+  bottom: 0;
+    left: 0;       
+    border-bottom: 0;
+    border-left: 0;
 }

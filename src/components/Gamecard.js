@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Gamecard = ({id, clicked}) => {
+const Gamecard = ({id, clicked, mouseEntered, mouseLeft}) => {
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -23,7 +23,7 @@ const Gamecard = ({id, clicked}) => {
                     setError(error);
                 }
             )
-    }, )
+    }, );
 
     if (error) {
         return <div>Error: {error.message}</div>;
@@ -32,9 +32,18 @@ const Gamecard = ({id, clicked}) => {
     } else {
         return (
             
-                    <div className="gameCardDiv" onClick={clicked}>
-                        <img src={boss.avatar} alt={boss.name}/>
-                        <div>{boss.name}</div>
+                    <div className="gameCardDiv" onClick={clicked} onMouseEnter={mouseEntered} onMouseLeave={mouseLeft}>
+                        <div className="bossFrame">
+                            <span className="bossCorner secondCorner"></span>
+                            <span className="bossCorner firstCorner"></span>
+                            <span className="bossCorner thirdCorner"></span>
+                            <span className="bossCorner fourthCorner"></span>
+                            <div className="bossImgDiv">
+                                <img className="bossImg" src={boss.avatar} alt={boss.name}/>
+                            </div>
+                            
+                        </div>
+                        <div className="bossName">{boss.name}</div>
                     </div>
             
         );

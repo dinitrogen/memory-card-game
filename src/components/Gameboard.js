@@ -88,7 +88,23 @@ const Gameboard = () => {
         let shuffledCards = shuffle([...gameCards]);
         setGameCards(shuffledCards);
         console.log(gameCards);
-    }    
+    }  
+    
+    const turnHoverOn = () => {
+        console.log('hover on')
+        const corners = document.querySelectorAll('.bossCorner');
+        corners.forEach((corner) => {
+            corner.style.backgroundColor = 'white';
+        });        
+    }
+
+    const turnHoverOff = () => {
+        console.log('hover off')
+        const corners = document.querySelectorAll('.bossCorner');
+        corners.forEach((corner) => {
+            corner.style.backgroundColor = 'black';
+        });        
+    }
 
     return (
         <div>
@@ -103,6 +119,8 @@ const Gameboard = () => {
                             key={gameCard.id}
                             id={gameCard.id}
                             clicked={() => handleCardSelect(gameCard.id)}
+                            mouseEntered={turnHoverOn}
+                            mouseLeft={turnHoverOff}
                         />
                     );
                 })}
