@@ -7,6 +7,8 @@ const Gameboard = () => {
 
     const [gameCards, setGameCards] = useState([{id:1, letter:'A'}, {id:2, letter: 'B'}, {id:3, letter: 'C'}, {id:4, letter: 'D'}, {id:5, letter: 'E'}]);
     const [pickedCardIds, setPickedCardIds] = useState([]);
+    const [score, setScore] = useState(0);
+    const [highScore, setHighScore] = useState(0);
 
     // useEffect(() => {
     //     shuffleCards();
@@ -23,10 +25,20 @@ const Gameboard = () => {
         if (pickedCardIds.includes(id)) {
             console.log("Already picked! Reset!");
             setPickedCardIds([]);
+            setScore(0);
         } else {
             console.log("Correct!");
             setPickedCardIds([...pickedCardIds, id]);
             console.log(pickedCardIds);
+            increaseScore();
+        }
+    }
+
+    const increaseScore = () => {
+        let newScore = score + 1;
+        setScore(newScore)
+        if (newScore > highScore) {
+            setHighScore(newScore);
         }
     }
 
@@ -58,9 +70,11 @@ const Gameboard = () => {
 
     return (
         <div>
-            <h1>Game board</h1>
-            
-            <div>
+            <h1>Memory Game</h1>
+            <p>Don't select the same card twice!</p>
+            <h2>Score: {score}</h2>
+            <h2>High score: {highScore}</h2>
+            <div className="gameCardGridDiv">
                 {gameCards.map((gameCard) => {
                     return (
                         <Gamecard
