@@ -1,10 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header.js';
+import Gameboard from './components/Gameboard.js';
 
 function App() {
   return (
     <div className="App">
-     
+        <Header />
+        <Gameboard />
     </div>
   );
 }
