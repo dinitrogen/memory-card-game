@@ -11,6 +11,8 @@ const Gamecard = ({id, clicked}) => {
 
 
     useEffect(() => {
+        const abortController = new AbortController();
+
         fetch(`https://megaman-robot-masters.herokuapp.com/byId/${id}`, {
             method: 'GET'
         })
@@ -27,6 +29,11 @@ const Gamecard = ({id, clicked}) => {
                     setError(error);
                 }
             )
+        
+            return () => {
+            abortController.abort();
+        }
+
     }, );
 
     const mouseEntered = () => {

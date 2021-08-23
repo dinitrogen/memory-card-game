@@ -2,6 +2,22 @@
 .App {
   background-color: rgb(103, 103, 255);
   min-height: 100vh;
+  min-width: 100vh;
+}
+
+.gameButton {
+    color: white;
+    height: 24px;
+    font-family: "Press Start 2P";
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+.gameButton:hover {
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .titleDiv {

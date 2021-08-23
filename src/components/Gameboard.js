@@ -8,7 +8,7 @@ const getCards = () => {
     let bossCards = [];
     let numCards = 9; // Adjust for number of cards
         while (bossIdArray.length < numCards) {
-            let id = Math.floor(Math.random() * 31) + 10
+            let id = Math.floor(Math.random() * 32) + 9
 
             // if (id < 10) {
             //     id = '00' + id;
@@ -20,7 +20,7 @@ const getCards = () => {
                 bossIdArray.push(id);
                 bossCards.push({id:id});
             } 
-        }  
+        }
     // console.log(bossIdArray);
     // console.log(bossCards);
     return bossCards;
@@ -34,15 +34,22 @@ const Gameboard = () => {
     const [pickedCardIds, setPickedCardIds] = useState([]);
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
+    const [hardMode, setHardMode] = useState(true);
 
 
     const handleCardSelect = (id) => {
         console.log('you clicked card ' + id);
         checkCard(id);
-        shuffleCards();
+
+        if (!hardMode) {
+            shuffleCards();
+        } else {
+            dealNewCards();
+        }
+
+
     }
 
-    
     const checkCard = (id) => {
         if (pickedCardIds.includes(id)) {
             console.log("Already picked! Reset!");
@@ -51,7 +58,7 @@ const Gameboard = () => {
         } else {
             console.log("Correct!");
             setPickedCardIds([...pickedCardIds, id]);
-            console.log(pickedCardIds);
+            //console.log(pickedCardIds);
             increaseScore();
         }
     }
@@ -89,6 +96,37 @@ const Gameboard = () => {
         setGameCards(shuffledCards);
         console.log(gameCards);
     }  
+
+
+    const dealNewCards = () => {
+            let newCards = getCards();    
+
+            while (checkCardsForMatch(newCards, pickedCardIds) === true && pickedCardIds.length < 32) {
+                console.log('no unique bosses');
+                newCards = getCards();
+            }
+            console.log(newCards);
+            setGameCards(newCards);
+        
+    }
+
+    const checkCardsForMatch = (newCards, pickedCardIds) => {
+        let newCardsIds = newCards.map(newCard => newCard.id);
+        console.log(newCardsIds);
+        for (let i = 0; i < newCardsIds.length; i++) {
+            if (pickedCardIds.indexOf(newCardsIds[i]) === -1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    const toggleDifficulty = () => {
+        setHardMode(!hardMode);
+        setPickedCardIds([]);
+        setScore(0);
+        dealNewCards();
+    }
     
     return (
         <div>
@@ -106,7 +144,10 @@ const Gameboard = () => {
                         <div className="titleLines"></div>
                     </div>
                 </div>
+                
                 <h3>Don't select the same boss twice!</h3>
+                <h3>Change difficulty:</h3>
+                <div><button className="gameButton" onClick={toggleDifficulty}>{hardMode ? '- HARD -' : '- NORMAL -'}</button></div>
                 <div className="scoreDiv">
                     <span>Score: {score}</span>
                     <span>High score: {highScore}</span>
