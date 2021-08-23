@@ -1,33 +1,63 @@
 
-/* .gameCardDiv {
-  border: solid black 2px;
-  width: 100px;
-  height: 100px;
-  margin: 10px;
+.App {
+  background-color: rgb(103, 103, 255);
+  min-height: 100vh;
+}
+
+.titleDiv {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 30px;
+  
+}
+
+.titleText {
+  flex-grow: 0;
+  margin: 20px 20px 20px 20px;
+}
+
+.titleLineGroup {
+  flex-grow: 1;
+}
+
+.titleLines {
+  flex-grow: 1;
+  height: 3px;
+  margin: 5px 0px 5px 0px;
+  background-color: white;
+}
+
+.headerDiv {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   text-align: center;
-} */
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+
+}
+
+.scoreDiv {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 20px;
+  font-family: 'Press Start 2P', cursive;
+}
 
 .gameCardGridDiv {
+  width: 450px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 120px 120px 120px;
   grid-template-rows: 120px 120px 120px;
   column-gap: 40px;
   row-gap: 40px;
-
 }
 
-.bossImg {
-  height: 70px;
-  width: 70px;
-}
-
-.bossFrame {
+.bossFrameOuter {
   position:relative;
-  border: solid black 2px;
-  background-color: dodgerblue;
+  border: solid black 5px;
+  background-color: white;
   width: 100px;
   height: 100px;
   margin: 10px;
@@ -37,22 +67,55 @@
   text-align: center;
 }
 
+.bossFrameMiddle {
+  height: 90%;
+  width:90%;
+  margin: 2px;
+  border: solid black 3px;
+  background-color: dodgerblue;
+}
+
+.bossFrameInner {
+  height: 90%;
+  width: 90%;
+  margin: 2px;
+  border: solid white 3px;
+  background-color: dodgerblue;
+
+}
+
+.bossImg {
+  border: solid 2px black;
+  background-color: black;
+  margin-top: 3px;
+  height: 70px;
+  width: 70px;
+}
 
 .bossName {
-  text-align: center;
+  color: white;
+  text-align: left;
+  text-align-last: right;
+  font-family: 'Press Start 2P', cursive;
+  text-transform: 'uppercase';
+  
 }
 
 .bossCorner {
   background-color: black;
-  height: 15px;
-  width: 15px;
+  border: solid black 2px;
+  height: 13px;
+  width: 13px;
+
   
 }
 
 .bossCornerHover {
   background-color: white;
-  height: 15px;
-  width: 15px;
+  border: solid black 2px;
+  height: 13px;
+  width: 13px;
+  animation: blink 0.25s infinite;
   
 }
 
@@ -63,6 +126,7 @@
   right: 0;
   border-bottom: 0;
   border-right: 0;
+  
 }
 
 .secondCorner {
@@ -87,4 +151,50 @@
     left: 0;       
     border-bottom: 0;
     border-left: 0;
+}
+
+
+@keyframes blink {
+  0% {
+      background-color: black;
+  }
+  100% {
+      background-color: white;
+  }
+}
+
+@-moz-keyframes blink {
+  0% {
+      background-color: black;
+  }
+  100% {
+      background-color: white;
+  }
+}
+
+@-webkit-keyframes blink {
+  0% {
+      background-color: black;
+  }
+  100% {
+      background-color: white;
+  }
+}
+
+@-o-keyframes blink {
+  0% {
+      background-color: black;
+  }
+  100% {
+      background-color: white;
+  }
+}
+
+@-ms-keyframes blink {
+  0% {
+      background-color: black;
+  }
+  100% {
+      background-color: white;
+  }
 }

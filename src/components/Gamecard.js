@@ -5,7 +5,9 @@ const Gamecard = ({id, clicked}) => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [boss, setBoss] = useState({});
+    const [bossName, setBossName] = useState('');
     const [hover, setHover] = useState(false);
+    
 
 
     useEffect(() => {
@@ -17,6 +19,7 @@ const Gamecard = ({id, clicked}) => {
                 (result) => {
                     setIsLoaded(true);
                     setBoss(result);
+                    setBossName(result.name.toUpperCase());
                 },
 
                 (error) => {
@@ -44,17 +47,20 @@ const Gamecard = ({id, clicked}) => {
         return (
             
                     <div className="gameCardDiv" onClick={clicked} onMouseEnter={mouseEntered} onMouseLeave={mouseLeft}>
-                        <div className="bossFrame">
-                            <span className={hover ? 'bossCornerHover secondCorner' : 'bossCorner secondCorner'}></span>
-                            <span className={hover ? 'bossCornerHover firstCorner' : 'bossCorner firstCorner'}></span>
-                            <span className={hover ? 'bossCornerHover thirdCorner' : 'bossCorner thirdCorner'}></span>
-                            <span className={hover ? 'bossCornerHover fourthCorner' : 'bossCorner fourthCorner'}></span>
-                            <div className="bossImgDiv">
-                                <img className="bossImg" src={boss.avatar} alt={boss.name}/>
+                        <div className="bossFrameOuter">
+                            <div className="bossFrameMiddle">
+                                <div className="bossFrameInner">
+                                    <span className={hover ? 'bossCornerHover secondCorner' : 'bossCorner secondCorner'}></span>
+                                    <span className={hover ? 'bossCornerHover firstCorner' : 'bossCorner firstCorner'}></span>
+                                    <span className={hover ? 'bossCornerHover thirdCorner' : 'bossCorner thirdCorner'}></span>
+                                    <span className={hover ? 'bossCornerHover fourthCorner' : 'bossCorner fourthCorner'}></span>
+                                    <div className="bossImgDiv">
+                                        <img className="bossImg" src={boss.avatar} alt={bossName}/>
+                                    </div>
+                                </div>
                             </div>
-                            
                         </div>
-                        <div className="bossName">{boss.name}</div>
+                        <div className="bossName">{bossName}</div>
                     </div>
             
         );

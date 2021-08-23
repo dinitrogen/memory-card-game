@@ -92,10 +92,26 @@ const Gameboard = () => {
     
     return (
         <div>
-            <h1>Memory Game</h1>
-            <p>Don't select the same card twice!</p>
-            <h2>Score: {score}</h2>
-            <h2>High score: {highScore}</h2>
+            <div className="headerDiv">
+                <div className="titleDiv">
+                    <div className="titleLineGroup">
+                        <div className="titleLines"></div>
+                        <div className="titleLines"></div>
+                        <div className="titleLines"></div>
+                    </div>
+                    <div className="titleText">MEMORY GAME</div>
+                    <div className="titleLineGroup">
+                        <div className="titleLines"></div>
+                        <div className="titleLines"></div>
+                        <div className="titleLines"></div>
+                    </div>
+                </div>
+                <h3>Don't select the same boss twice!</h3>
+                <div className="scoreDiv">
+                    <span>Score: {score}</span>
+                    <span>High score: {highScore}</span>
+                </div>
+            </div>
             <div className="gameCardGridDiv">
                 {gameCards.map((gameCard) => {
                     return (
