@@ -129,7 +129,7 @@ const Gameboard = () => {
                         <div className="titleLines"></div>
                         <div className="titleLines"></div>
                     </div>
-                    <div className="titleText">MEMORY GAME</div>
+                    <div className="titleText">MEGA MEMORY GAME</div>
                     <div className="titleLineGroup">
                         <div className="titleLines"></div>
                         <div className="titleLines"></div>

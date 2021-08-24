@@ -16,6 +16,10 @@
     background-color: rgb(41, 121, 255);
 }
 
+.gameCardDiv:hover {
+    cursor: pointer;
+}
+
 .bossFrameOuter {
     position:relative;
     border: solid black 4px;
