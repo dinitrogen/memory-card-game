@@ -35,6 +35,8 @@ const Gamecard = ({id, clicked}) => {
 
     }, );
 
+    
+
     const mouseEntered = () => {
         setHover(true);
     }
@@ -50,7 +52,7 @@ const Gamecard = ({id, clicked}) => {
     } else {
         return (
             
-                    <div className="gameCardDiv" onClick={clicked} onMouseEnter={mouseEntered} onMouseLeave={mouseLeft}>
+                    <div className="gameCardDiv" onClick={clicked} onMouseEnter={mouseEntered} onMouseLeave={mouseLeft} onMouseUp={mouseLeft} onTouchStart={mouseEntered} onTouchEnd={mouseLeft}>
                         <div className="bossFrameOuter">
                             <div className="bossFrameMiddle">
                                 <div className="bossFrameInner">
