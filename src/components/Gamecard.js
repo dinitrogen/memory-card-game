@@ -9,7 +9,6 @@ const Gamecard = ({id, clicked}) => {
     const [hover, setHover] = useState(false);
     
 
-
     useEffect(() => {
         const abortController = new AbortController();
 
@@ -38,12 +37,10 @@ const Gamecard = ({id, clicked}) => {
 
     const mouseEntered = () => {
         setHover(true);
-        // console.log('hover on ' + boss.name)
     }
 
     const mouseLeft = () => {
         setHover(false);
-        // console.log('hover off ' + boss.name)
     }
 
     if (error) {
@@ -72,20 +69,6 @@ const Gamecard = ({id, clicked}) => {
             
         );
     }
-
-
-
-
-    // return (
-    //     <div>
-            
-    //         <div className="gameCardDiv" onClick={clicked}>
-    //             {letter}
-    //         </div>
-
-    //     </div>
-    // )
-
 }
 
 

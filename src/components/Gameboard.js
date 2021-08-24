@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Gamecard from './Gamecard';
 
 
@@ -10,21 +10,12 @@ const getCards = () => {
         while (bossIdArray.length < numCards) {
             let id = Math.floor(Math.random() * 32) + 9
 
-            // if (id < 10) {
-            //     id = '00' + id;
-            // } else {
-            //     id = '0' + id;
-            // }
-            
             if (!bossIdArray.includes(id)) {
                 bossIdArray.push(id);
                 bossCards.push({id:id});
             } 
         }
-    // console.log(bossIdArray);
-    // console.log(bossCards);
     return bossCards;
-    
 }
 
 
@@ -39,7 +30,7 @@ const Gameboard = () => {
 
 
     const handleCardSelect = (id) => {
-        console.log('you clicked card ' + id);
+        // console.log('you clicked card ' + id);
         setResultText('');
         checkCard(id);
 
@@ -48,20 +39,17 @@ const Gameboard = () => {
         } else {
             dealNewCards();
         }
-
-
     }
 
     const checkCard = (id) => {
         if (pickedCardIds.includes(id)) {
-            console.log("Already picked! Reset!");
+            // console.log("Already picked! Reset!");
             setResultText('Try again!')
             setPickedCardIds([]);
             setScore(0);
         } else {
-            console.log("Correct!");
+            // console.log("Correct!");
             setPickedCardIds([...pickedCardIds, id]);
-            //console.log(pickedCardIds);
             increaseScore();
         }
     }
@@ -96,32 +84,27 @@ const Gameboard = () => {
           array[m] = array[i];
           array[i] = t;
         }
-    
         return array;
       } 
 
     const shuffleCards = () => {
         let shuffledCards = shuffle([...gameCards]);
         setGameCards(shuffledCards);
-        console.log(gameCards);
     }  
 
 
     const dealNewCards = () => {
-            let newCards = getCards();    
+        let newCards = getCards();    
 
-            while (checkCardsForMatch(newCards, pickedCardIds) === true && pickedCardIds.length < 32) {
-                console.log('no unique bosses');
-                newCards = getCards();
-            }
-            console.log(newCards);
-            setGameCards(newCards);
-        
+        while (checkCardsForMatch(newCards, pickedCardIds) === true && pickedCardIds.length < 32) {
+            // console.log('no unique bosses');
+            newCards = getCards();
+        }
+        setGameCards(newCards);
     }
 
     const checkCardsForMatch = (newCards, pickedCardIds) => {
         let newCardsIds = newCards.map(newCard => newCard.id);
-        console.log(newCardsIds);
         for (let i = 0; i < newCardsIds.length; i++) {
             if (pickedCardIds.indexOf(newCardsIds[i]) === -1) {
                 return false;
@@ -217,8 +200,6 @@ const Gameboard = () => {
             </div>
         </div>
     );
-
-
 }
 
 
