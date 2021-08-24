@@ -34,11 +34,13 @@ const Gameboard = () => {
     const [pickedCardIds, setPickedCardIds] = useState([]);
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
-    const [hardMode, setHardMode] = useState(true);
+    const [hardMode, setHardMode] = useState(false);
+    const [resultText, setResultText] = useState('');
 
 
     const handleCardSelect = (id) => {
         console.log('you clicked card ' + id);
+        setResultText('');
         checkCard(id);
 
         if (!hardMode) {
@@ -53,6 +55,7 @@ const Gameboard = () => {
     const checkCard = (id) => {
         if (pickedCardIds.includes(id)) {
             console.log("Already picked! Reset!");
+            setResultText('Try again!')
             setPickedCardIds([]);
             setScore(0);
         } else {
@@ -68,6 +71,12 @@ const Gameboard = () => {
         setScore(newScore)
         if (newScore > highScore) {
             setHighScore(newScore);
+        }
+        if (!hardMode && newScore === 9) {
+            setResultText('You win! Select any boss to reset');
+        }
+        if (hardMode && newScore === 32) {
+            setResultText('You win! Select any boss to reset');
         }
     }
 
@@ -153,18 +162,59 @@ const Gameboard = () => {
                     <span>High score: {highScore}</span>
                 </div>
             </div>
-            <div className="gameCardGridDiv">
-                {gameCards.map((gameCard) => {
-                    return (
-                        <Gamecard
-                            key={gameCard.id}
-                            id={gameCard.id}
-                            clicked={() => handleCardSelect(gameCard.id)}
-                        />
-                    );
-                })}
+
+            <div className="bodyDiv">
+                <div className="bodyLinesDiv">
+                        <div className="bodyLinesGroup">
+                            <div className="bodyLines"></div>
+                            <div className="bodyLines"></div>
+                            <div className="bigBodyLines"></div>
+                            <div className="bodyLines"></div>
+                            <div className="bodyLines"></div>
+                        </div>
+                        <div className="bodyLinesGroup">
+                            <div className="bodyLines"></div>
+                            <div className="bodyLines"></div>
+                            <div className="bigBodyLines"></div>
+                            <div className="bodyLines"></div>
+                            <div className="bodyLines"></div>
+                        </div>
+                        <div className="bodyLinesGroup">
+                            <div className="bodyLines"></div>
+                            <div className="bodyLines"></div>
+                            <div className="bigBodyLines"></div>
+                            <div className="bodyLines"></div>
+                            <div className="bodyLines"></div>
+                        </div>
+                </div>
+                <div className="gameCardGridDiv">
+                    {gameCards.map((gameCard) => {
+                        return (
+                            <Gamecard
+                                key={gameCard.id}
+                                id={gameCard.id}
+                                clicked={() => handleCardSelect(gameCard.id)}
+                            />
+                        );
+                    })}
+                </div>
             </div>
 
+            <div className="footerDiv">
+                <div className="titleDiv">
+                    <div className="titleLineGroup">
+                        <div className="titleLines"></div>
+                        <div className="titleLines"></div>
+                        <div className="titleLines"></div>
+                    </div>
+                    <div className="footerText">{resultText}</div>
+                    <div className="titleLineGroup">
+                        <div className="titleLines"></div>
+                        <div className="titleLines"></div>
+                        <div className="titleLines"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 

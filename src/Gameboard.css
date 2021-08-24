@@ -1,0 +1,112 @@
+
+.gameButton {
+    color: white;
+    height: 24px;
+    font-family: "Press Start 2P";
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+.gameButton:hover {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.titleDiv {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 30px;
+}
+
+.titleText {
+    flex-grow: 0;
+    margin: 20px 20px 20px 20px;
+}
+
+.titleLineGroup {
+    flex-grow: 1;
+}
+
+.titleLines {
+    flex-grow: 1;
+    height: 3px;
+    margin: 5px 0px 5px 0px;
+    background-color: white;
+}
+
+.headerDiv {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.scoreDiv {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 20px;
+    font-family: 'Press Start 2P', cursive;
+    margin: 20px;
+}
+
+.bodyDiv {
+    position: relative;
+    width: 100%;
+    height: 480px;
+}
+
+.bodyLinesDiv {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.bodyLinesGroup {
+    flex-grow: 1;
+    margin-top: 30px;
+}
+
+.bodyLines {
+    flex-grow: 1;
+    height: 3px;
+    margin: 3px 0px 3px 0px;
+    background-color: rgb(0, 229, 255);
+}
+
+.bigBodyLines {
+    flex-grow: 1;
+    height: 25px;
+    margin: 3px 0px 3px 0px;
+    background-color: rgb(0, 229, 255);
+}
+
+.gameCardGridDiv {
+    position:absolute;
+    width: 450px;
+    left:0;
+    right:0;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+    grid-template-rows: 120px 120px 120px;
+    column-gap: 40px;
+    row-gap: 40px;
+}
+
+.footerDiv {
+    padding-top: 50px;
+}
+
+.footerText {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+}

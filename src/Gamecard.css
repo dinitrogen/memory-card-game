@@ -1,0 +1,159 @@
+
+.loadingDiv {
+    color: white;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    line-height: 120px;
+    
+}
+
+.gameCardDiv {
+    width: 108px;
+    height: 108px;
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: rgb(41, 121, 255);
+}
+
+.bossFrameOuter {
+    position:relative;
+    border: solid black 4px;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .bossFrameMiddle {
+    height: 90%;
+    width: 90%;
+    margin: 2px;
+    border: solid black 3px;
+    background-color: rgb(79, 195, 247);
+  }
+  
+  .bossFrameInner {
+    height: 90%;
+    width: 90%;
+    margin: 3px;
+    border: solid white 2px;
+    background-color: rgb(79, 195, 247);
+  }
+  
+  .bossImg {
+    border: solid 2px black;
+    background-color: black;
+    margin-top: 3px;
+    height: 70px;
+    width: 70px;
+  }
+  
+  .bossName {
+    color: white;
+    text-align: left;
+    text-align-last: right;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    text-transform: 'uppercase'; 
+    margin-top: 6px;
+    margin-left: -4px;
+  }
+  
+  .bossCorner {
+    background-color: black;
+    border: solid black 2px;
+    height: 13px;
+    width: 13px;  
+  }
+  
+  .bossCornerHover {
+    background-color: white;
+    border: solid black 2px;
+    height: 13px;
+    width: 13px;
+    animation: blink 0.25s infinite;
+  }
+  
+  
+  .firstCorner {
+    position:absolute;
+    bottom: 0;
+    right: 0;
+    border-bottom: 0;
+    border-right: 0;
+  }
+  
+  .secondCorner {
+    position:absolute;
+    top: 0;
+    right: 0;
+    border-top: 0;
+    border-right: 0;    
+  }
+  
+  .thirdCorner {
+    position:absolute;
+    top: 0;
+      left: 0; 
+      border-top: 0;
+      border-left: 0;  
+  }
+  
+  .fourthCorner {
+    position:absolute;
+    bottom: 0;
+      left: 0;       
+      border-bottom: 0;
+      border-left: 0;
+  }
+  
+  
+  @keyframes blink {
+    0% {
+        background-color: black;
+    }
+    100% {
+        background-color: white;
+    }
+  }
+  
+  @-moz-keyframes blink {
+    0% {
+        background-color: black;
+    }
+    100% {
+        background-color: white;
+    }
+  }
+  
+  @-webkit-keyframes blink {
+    0% {
+        background-color: black;
+    }
+    100% {
+        background-color: white;
+    }
+  }
+  
+  @-o-keyframes blink {
+    0% {
+        background-color: black;
+    }
+    100% {
+        background-color: white;
+    }
+  }
+  
+  @-ms-keyframes blink {
+    0% {
+        background-color: black;
+    }
+    100% {
+        background-color: white;
+    }
+  }
