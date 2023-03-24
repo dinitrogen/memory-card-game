@@ -12,7 +12,7 @@ const Gamecard = ({id, clicked}) => {
     useEffect(() => {
         const abortController = new AbortController();
 
-        fetch(`https://megaman-robot-masters.herokuapp.com/byId/${id}`, {
+        fetch(`https://megaman-robot-masters.fly.dev/byId/${id}`, {
             method: 'GET'
         })
             .then(res => res.json())
