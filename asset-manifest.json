@@ -1,22 +1,15 @@
 {
   "files": {
-    "main.css": "/memory-card-game/static/css/main.ca18515f.chunk.css",
-    "main.js": "/memory-card-game/static/js/main.c4c37973.chunk.js",
-    "main.js.map": "/memory-card-game/static/js/main.c4c37973.chunk.js.map",
-    "runtime-main.js": "/memory-card-game/static/js/runtime-main.8fbf478b.js",
-    "runtime-main.js.map": "/memory-card-game/static/js/runtime-main.8fbf478b.js.map",
-    "static/js/2.5d58b610.chunk.js": "/memory-card-game/static/js/2.5d58b610.chunk.js",
-    "static/js/2.5d58b610.chunk.js.map": "/memory-card-game/static/js/2.5d58b610.chunk.js.map",
-    "static/js/3.639a3803.chunk.js": "/memory-card-game/static/js/3.639a3803.chunk.js",
-    "static/js/3.639a3803.chunk.js.map": "/memory-card-game/static/js/3.639a3803.chunk.js.map",
+    "main.css": "/memory-card-game/static/css/main.5301cb11.css",
+    "main.js": "/memory-card-game/static/js/main.c5aba604.js",
+    "static/js/453.d18786eb.chunk.js": "/memory-card-game/static/js/453.d18786eb.chunk.js",
     "index.html": "/memory-card-game/index.html",
-    "static/css/main.ca18515f.chunk.css.map": "/memory-card-game/static/css/main.ca18515f.chunk.css.map",
-    "static/js/2.5d58b610.chunk.js.LICENSE.txt": "/memory-card-game/static/js/2.5d58b610.chunk.js.LICENSE.txt"
+    "main.5301cb11.css.map": "/memory-card-game/static/css/main.5301cb11.css.map",
+    "main.c5aba604.js.map": "/memory-card-game/static/js/main.c5aba604.js.map",
+    "453.d18786eb.chunk.js.map": "/memory-card-game/static/js/453.d18786eb.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.8fbf478b.js",
-    "static/js/2.5d58b610.chunk.js",
-    "static/css/main.ca18515f.chunk.css",
-    "static/js/main.c4c37973.chunk.js"
+    "static/css/main.5301cb11.css",
+    "static/js/main.c5aba604.js"
   ]
 }
