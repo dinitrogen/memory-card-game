@@ -33,7 +33,7 @@ const Gamecard = ({id, clicked}) => {
             abortController.abort();
         }
 
-    }, );
+    }, []);
 
     
 
